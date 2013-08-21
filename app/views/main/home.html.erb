@@ -1,0 +1,16 @@
+<h1>Main#home</h1>
+<p>Find me in app/views/main/home.html.erb</p>
+<div class="row offset6">
+
+    <%= @todo_list.content  %>
+  <div class="row offset6">
+    <% @todo_lists.each do |t| %>
+        <%= t.content %>
+        <%= link_to 'Show',t %>
+        <%= link_to 'Edit', edit_todo_list_path(t) %>
+        <%= link_to 'Destroy', t, method: :delete, data: { confirm: 'Are you sure?' } %><br/>
+    <% end %>
+  </div>
+  </table>
+
+</div>

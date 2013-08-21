@@ -1,0 +1,301 @@
+/* Fix up things for 1-page web app: zero margins, body occupies the
+whole document space.*/
+
+html, body
+{
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+}
+
+body
+{
+  background-image: url(img/bkgnd.png);
+  backgroud-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-attachment: fixed;
+  position: relative;
+}
+
+.clear
+{
+  clear: both;
+  width: 100%;
+}
+
+
+
+
+/***********************************************************************/
+/* Todo lists */
+/***********************************************************************/
+.todo
+{
+  position: absolute;
+  min-width: 350px;
+  max-width: 600px;
+  border: solid 2px;
+  -moz-user-select: -moz-none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.todo input
+{
+  -moz-user-select:  text;
+}
+
+/*************************************************************/
+/* header of a todo list */
+.todo > .header
+{
+  background-color: rgb(67, 116, 170);
+  font-size: 12pt;
+  color: white;
+  padding: 4px;
+}
+
+.todo > .header > table
+{
+  width: 100%;
+}
+
+.todo > .header .right > *
+{
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.todo > .header .left > *
+{
+  vertical-align: middle;
+}
+
+.todo > .header > table .right-column
+{
+  width: 54px;
+}
+
+.todo > .header .left > span.folder
+{
+  width: 33px;
+  height: 32px;
+  background-image: url(img/folder.png);
+  display: inline-block;
+}
+
+span.pencil
+{
+  width: 19px;
+  height: 20px;
+  background-image: url(img/pencil.png);
+}
+
+span.basket
+{
+  width: 19px;
+  height: 20px;
+  background-image: url(img/basket.png);
+}
+
+/* Edit and Remove buttons are invisible by default.  Only when
+hovering over the header. */
+.todo > .header .right > *
+{
+  visibility: hidden;
+}
+
+.todo > .header:hover .right > *
+{
+  visibility: visible;
+}
+
+
+/*************************************************************/
+/* add-task-line of a todo list */
+.todo > .add-task-line
+{
+  padding: 4px 0 4px 5px;
+  background-color: rgb(166, 166, 166);
+}
+
+.todo > .add-task-line > table
+{
+  width: 100%;
+}
+
+.todo > .add-task-line .edit
+{
+  width: 100%;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  color: #777;
+}
+
+.todo > .add-task-line > table tr > td
+{
+  vertical-align: middle;
+  padding: 0px 3px;
+}
+
+.todo > .add-task-line > table tr > td > span.plus
+{
+  background-image: url(img/plus.png);
+  width: 24px;
+  height: 24px;
+  display: inline-block;
+}
+
+/*************************************************************/
+/* task-table of a todo list */
+.todo > .task-table > table
+{
+  width: 100%;
+  table-layout: fixed;
+  background-color: white;
+}
+
+.todo > .task-table > table col.operational-buttons
+{
+  width: 80px;
+}
+
+.todo > .task-table > table col.chkbox
+{
+  width: 40px;
+}
+
+.todo > .task-table > table col.descr
+{
+  width: 100%;
+}
+
+.todo > .task-table tr
+{
+  height: 2em;
+  font-size: 10pt;
+}
+
+.todo > .task-table tr > td
+{
+  border: solid 1px;
+}
+
+.todo > .task-table td:first-child, .todo > .task-table td:last-child
+{
+  text-align: center;
+}
+
+.todo > .task-table tr > td
+{
+  vertical-align: middle;
+  padding: 4px 2px;
+}
+
+.todo > .task-table td:last-child > *
+{
+  vertical-align: middle;
+  display: inline-block;
+}
+
+/* Operational buttons are invisible by default.  Only when
+   hovering. */
+.todo > .task-table td:last-child > *
+{
+  visibility: hidden;
+}
+
+.todo > .task-table tr:hover > td:last-child > *
+{
+  visibility: visible;
+}
+
+
+
+/**************************************************************/
+/* Various other special things */
+
+/* Text input elements for editing.  These can appear in the header or
+   in the second column of the task table, presently. */
+
+.todo .for-editing
+{
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  width: 100%;
+}
+
+
+.todo > .header .left
+{
+  cursor: move;
+}
+
+.todo > .task-table tr > td:first-child + td > p
+{
+  cursor: move;
+}
+
+
+
+/* Add todo button */
+#add-todo-btn
+{
+  position: absolute;
+  margin-left: auto; margin-right: auto;
+  left: 0; right: 0;
+  bottom: 60px;
+  width: 240px;
+  z-index: 100; /* must be > than number of todo lists at any time */
+  padding: 5px 2em;
+  background-color: rgb(17, 106, 160);
+  color: black;
+  font-size: 1.3em;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+/* Log in */
+#login-wrapper
+{
+  position: absolute;
+  display: block;
+  width: 100%;
+
+  /* Center this box vertically */
+  top: 35%;
+  bottom: 35%;
+}
+
+#login-wrapper > .auth
+{
+  border-radius: 10px;
+  display: table;
+  margin-left: auto; margin-right: auto;
+  padding: 10px 15px;
+  background-color: rgb(67, 116, 170); /*#a2d*/
+  color: white;
+}
+
+#login-wrapper .buttons
+{
+  text-align: center;
+  margin-top: 15px;
+}
+
+#login-wrapper .input
+{
+  margin: 3px 3px;
+  background-color: #e6e6e6;
+}
+
+#login-wrapper .header
+{
+  text-align: center;
+}
+
+#login-wrapper .error
+{
+  color: #bd0000;
+}

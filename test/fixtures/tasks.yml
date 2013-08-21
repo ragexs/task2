@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  describe: MyString
+  todo_list_id: 1
+  priority: 1
+
+two:
+  describe: MyString
+  todo_list_id: 1
+  priority: 1

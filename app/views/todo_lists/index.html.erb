@@ -1,0 +1,20 @@
+<h1>Listing todo_lists</h1>
+
+<table>
+
+     <div class="todo offset6">
+    <% @todo_lists.each do |t| %>
+    <%= t.content %>
+    <%= link_to 'Show',t %>
+    <%= link_to 'Edit', edit_todo_list_path(t) %>
+    <%= link_to 'Destroy', t, method: :delete, data: { confirm: 'Are you sure?' } %><br/>
+    <%= link_to 'Add Task', tasks_path %>
+      <% end %>
+       </div>
+       </table>
+
+<br />
+
+
+<%= link_to 'New Todo list', new_todo_list_path %>
+<%= link_to 'Sign Out', signout_path, method: "delete"  %>   <br />

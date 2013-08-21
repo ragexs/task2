@@ -1,0 +1,20 @@
+<h1>Listing tasks</h1>
+
+<table>
+
+<% @tasks.each do |task| %>
+  <tr>
+    <td><%= task.describe %></td>
+    <td><%= task.todo_list_id %></td>
+    <td><%= task.priority %></td>
+    <td><%= link_to 'Show', task %></td>
+    <td><%= link_to 'Edit', edit_task_path(task) %></td>
+    <td><%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Task', new_task_path %>
+<%= link_to 'Sign Out', signout_path, method: "delete"  %>   <br />

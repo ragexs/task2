@@ -1,0 +1,23 @@
+<p id="notice"><%= notice %></p>
+
+<div class="row-fluid offset4">
+  <b>Content:</b>
+  <%= @todo_list.content %>
+</p>
+  <div class="span8">
+
+        <h3><%= @todo_list.content %></h3>
+        <ol class="todo_lists">
+
+        </ol>
+
+  </div>
+<p>
+  <b>User:</b>
+  <%= @todo_list.user_id %>  <br/>
+  <%= link_to 'Add Task', tasks_path %>
+</p>
+</div>
+
+<%= link_to 'Edit', edit_todo_list_path(@todo_list) %> |
+<%= link_to 'Back', todo_lists_path %>

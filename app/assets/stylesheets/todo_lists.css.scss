@@ -1,0 +1,143 @@
+// Place all the styles related to the TodoLists controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+/* header of a todo list */
+
+html, body
+{
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+}
+
+body
+{
+  background-image: url(img/bkgnd.png);
+  backgroud-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-attachment: fixed;
+  position: relative;
+}
+
+.clear
+{
+  clear: both;
+  width: 100%;
+}
+
+
+
+
+/***********************************************************************/
+/* Todo lists */
+/***********************************************************************/
+.todo
+{
+  position: absolute;
+  min-width: 350px;
+  max-width: 600px;
+  border: solid 2px;
+  -moz-user-select: -moz-none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.todo input
+{
+  -moz-user-select:  text;
+}
+
+.todo > .header
+{
+  background-color: rgb(67, 116, 170);
+  font-size: 12pt;
+  color: white;
+  padding: 4px;
+}
+
+.todo > .header > table
+{
+  width: 100%;
+}
+
+.todo > .header .right > *
+{
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.todo > .header .left > *
+{
+  vertical-align: middle;
+}
+
+.todo > .header > table .right-column
+{
+  width: 54px;
+}
+
+.todo > .header .left > span.folder
+{
+  width: 33px;
+  height: 32px;
+  background-image: url(img/folder.png);
+  display: inline-block;
+}
+
+span.pencil
+{
+  width: 19px;
+  height: 20px;
+  background-image: url(img/pencil.png);
+}
+
+span.basket
+{
+  width: 19px;
+  height: 20px;
+  background-image: url(img/basket.png);
+}
+/**************************************************************/
+/* Various other special things */
+
+/* Text input elements for editing.  These can appear in the header or
+   in the second column of the task table, presently. */
+
+.todo .for-editing
+{
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  width: 100%;
+}
+
+
+.todo > .header .left
+{
+  cursor: move;
+}
+
+.todo > .task-table tr > td:first-child + td > p
+{
+  cursor: move;
+}
+
+
+
+/* Add todo button */
+#add-todo-btn
+{
+  position: absolute;
+  margin-left: auto; margin-right: auto;
+  left: 0; right: 0;
+  bottom: 60px;
+  width: 240px;
+  z-index: 100; /* must be > than number of todo lists at any time */
+  padding: 5px 2em;
+  background-color: rgb(17, 106, 160);
+  color: black;
+  font-size: 1.3em;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
