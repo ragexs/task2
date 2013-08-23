@@ -1,8 +1,6 @@
 class TasksController < ApplicationController
   before_filter :signed_in_user, only: [:create, :destroy]
-  def current_todo_list
-    Task.find(params[:id]).update_attributes(todo_list_id: params[:todo_list_id])
-  end
+
   def index
     @tasks = Task.all
   end
@@ -16,7 +14,7 @@ class TasksController < ApplicationController
     @task = Task.find(params[:id])
   end
   def create
-    @task = Task.current_todo_list.tasks.build(params[:task])
+    @task = current_todo_list.tasks.build(params[:task])
       if @task.save
         redirect_to task_path(@task)
       else
