@@ -13,7 +13,7 @@ class TasksController < ApplicationController
     @task = Task.find(params[:id])
   end
   def create
-    @task = Task.new(params[:task])
+    @task = Task.current_todo_list.tasks.build(params[:task])
       if @task.save
         redirect_to task_path(@task)
       else
@@ -32,5 +32,8 @@ class TasksController < ApplicationController
     @task = Task.find(params[:id])
     @task.destroy
     redirect_to task_path
+  end
+  def current_todo_list
+    Task.find(params[:id]).update_attributes(todo_list_id: params[:todo_list_id])
   end
 end
