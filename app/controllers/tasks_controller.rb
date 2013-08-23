@@ -1,5 +1,8 @@
 class TasksController < ApplicationController
   before_filter :signed_in_user, only: [:create, :destroy]
+  def current_todo_list
+    Task.find(params[:id]).update_attributes(todo_list_id: params[:todo_list_id])
+  end
   def index
     @tasks = Task.all
   end
@@ -33,7 +36,5 @@ class TasksController < ApplicationController
     @task.destroy
     redirect_to task_path
   end
-  def current_todo_list
-    Task.find(params[:id]).update_attributes(todo_list_id: params[:todo_list_id])
-  end
+
 end

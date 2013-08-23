@@ -42,4 +42,5 @@ class TodoListsController < ApplicationController
   def correct_user
     @todo_list = current_user.todo_lists.find_by_id(params[:id])
   end
+
 end
