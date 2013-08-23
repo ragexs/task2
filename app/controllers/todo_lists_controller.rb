@@ -6,7 +6,7 @@ class TodoListsController < ApplicationController
   end
   def show
     @todo_list = TodoList.find(params[:id])
-    @task.todo_list_id = @todo_list.id
+
   end
   def new
     @todo_list = TodoList.new
@@ -31,9 +31,8 @@ class TodoListsController < ApplicationController
       end
   end
   def add_task
-      @todo_list = TodoList.find(params[:id])
-      @task.todo_list_id = @todo_list.id
-    redirect_to task_path
+    Task.find(params[:id]).update_attributes(todo_list_id: params[:todo_list_id])
+    redirect_to tasks_path
   end
   def destroy
     @todo_list = TodoList.find(params[:id])

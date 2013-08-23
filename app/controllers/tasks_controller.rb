@@ -1,7 +1,7 @@
 class TasksController < ApplicationController
   before_filter :signed_in_user, only: [:create, :destroy]
   def index
-    @task = Task.find(params[:todo_list_id])
+    @tasks = Task.all
   end
   def show
     @task = Task.find(params[:id])
@@ -13,7 +13,7 @@ class TasksController < ApplicationController
     @task = Task.find(params[:id])
   end
   def create
-    @task = current_todo_list.tasks.build(params[:task])
+    @task = Task.new(params[:task])
       if @task.save
         redirect_to task_path(@task)
       else

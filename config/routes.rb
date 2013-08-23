@@ -1,4 +1,7 @@
 Task2::Application.routes.draw do
+  resources :some_news
+
+
   get "main/home"
 
   resources :tasks
