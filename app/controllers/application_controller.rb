@@ -3,6 +3,8 @@ class ApplicationController < ActionController::Base
   include SessionsHelper
 
   def current_todo_list
-    Task.find(params[:id]).update_attributes(todo_list_id: params[:todo_list_id])
+Task.find(params[:id]).update_attributes(todo_list_id: params[:todo_list_id])
+
   end
+
 end

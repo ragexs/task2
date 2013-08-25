@@ -31,8 +31,13 @@ class TodoListsController < ApplicationController
       end
   end
   def add_task
-    Task.find(params[:id]).update_attributes(todo_list_id: params[:todo_list_id])
-    redirect_to tasks_path
+    @task = current_todo_list.todo_list(params[:id])
+    if @task.save
+      redirect_to tasks_path
+    else
+
+    end
+
   end
   def destroy
     @todo_list = TodoList.find(params[:id])

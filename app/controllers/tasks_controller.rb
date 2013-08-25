@@ -2,13 +2,13 @@ class TasksController < ApplicationController
   before_filter :signed_in_user, only: [:create, :destroy]
 
   def index
-    @tasks = current_todo_list.tasks
+    @tasks = Task.all
   end
   def show
     @task = Task.find(params[:id])
   end
   def new
-    @task = Task.new
+    @task = Task.new(params[:todo_list_id])
   end
   def edit
     @task = Task.find(params[:id])
