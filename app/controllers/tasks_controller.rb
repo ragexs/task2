@@ -2,7 +2,7 @@ class TasksController < ApplicationController
   before_filter :signed_in_user, only: [:create, :destroy]
 
   def index
-    @tasks = Task.all
+    @tasks = current_todo_list.tasks
   end
   def show
     @task = Task.find(params[:id])
@@ -32,7 +32,7 @@ class TasksController < ApplicationController
   def destroy
     @task = Task.find(params[:id])
     @task.destroy
-    redirect_to task_path
+    redirect_to tasks_path
   end
 
 end
