@@ -5,7 +5,9 @@ Task2::Application.routes.draw do
   get "main/home"
 
   resources :tasks
-  resources :todo_lists
+  resources :todo_lists do
+    resources :tasks
+  end
   match '/add_task', to: 'tasks#create'
   resources :users
   match '/users/:id', to: 'users#show'
