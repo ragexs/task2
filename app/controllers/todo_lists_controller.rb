@@ -31,7 +31,7 @@ class TodoListsController < ApplicationController
       end
   end
   def add_task
-    @task = current_todo_list.todo_list(params[:id])
+    @task = current_todo_list.todo_list
     if @task.save
       redirect_to tasks_path
     else
